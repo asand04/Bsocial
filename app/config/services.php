@@ -110,3 +110,11 @@ $di->setShared('session', function () {
 
     return $session;
 });
+/*
+ * route
+ */
+$di->set('router', function() use($di){
+    $router = new \Phalcon\Mvc\Router;
+    $router->setDefaultController('landing');
+    return $router;
+});
