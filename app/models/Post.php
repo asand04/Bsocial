@@ -22,14 +22,14 @@ class Post extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(type="string", length=45, nullable=false)
+     * @Column(type="string", length=255, nullable=false)
      */
     public $title;
 
     /**
      *
      * @var string
-     * @Column(type="string", nullable=false)
+     * @Column(type="string", length=255, nullable=false)
      */
     public $content;
 
@@ -54,6 +54,7 @@ class Post extends \Phalcon\Mvc\Model
     {
         $this->setSchema("social");
         $this->setSource("post");
+        $this->hasMany('id_post', 'Comments', 'id_post', ['alias' => 'Comments']);
         $this->belongsTo('id_user', '\User', 'id_user', ['alias' => 'User']);
     }
 
@@ -88,53 +89,101 @@ class Post extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
-    function getId_post() {
-        return $this->id_post;
-    }
 
-    function getId_user() {
-        return $this->id_user;
-    }
-
-    function getTitle() {
-        return $this->title;
-    }
-
-    function getContent() {
-        return $this->content;
-    }
-
-    function getCreateDate() {
-        return $this->createDate;
-    }
-
-    function getPostedDate() {
+    /**
+     * @return string
+     */
+    public function getPostedDate()
+    {
         return $this->postedDate;
     }
 
-    function setId_post($id_post) {
-        $this->id_post = $id_post;
-    }
-
-    function setId_user($id_user) {
-        $this->id_user = $id_user;
-    }
-
-    function setTitle($title) {
-        $this->title = $title;
-    }
-
-    function setContent($content) {
-        $this->content = $content;
-    }
-
-    function setCreateDate($createDate) {
-        $this->createDate = $createDate;
-    }
-
-    function setPostedDate($postedDate) {
+    /**
+     * @param string $postedDate
+     */
+    public function setPostedDate($postedDate)
+    {
         $this->postedDate = $postedDate;
     }
 
+    /**
+     * @return int
+     */
+    public function getIdPost()
+    {
+        return $this->id_post;
+    }
+
+    /**
+     * @param int $id_post
+     */
+    public function setIdPost($id_post)
+    {
+        $this->id_post = $id_post;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdUser()
+    {
+        return $this->id_user;
+    }
+
+    /**
+     * @param int $id_user
+     */
+    public function setIdUser($id_user)
+    {
+        $this->id_user = $id_user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreateDate()
+    {
+        return $this->createDate;
+    }
+
+    /**
+     * @param string $createDate
+     */
+    public function setCreateDate($createDate)
+    {
+        $this->createDate = $createDate;
+    }
 
 }

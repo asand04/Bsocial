@@ -29,7 +29,7 @@ class Comments extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(type="string", length=45, nullable=false)
+     * @Column(type="string", length=255, nullable=false)
      */
     public $comment;
 
@@ -40,6 +40,7 @@ class Comments extends \Phalcon\Mvc\Model
     {
         $this->setSchema("social");
         $this->setSource("comments");
+        $this->belongsTo('id_post', '\Post', 'id_post', ['alias' => 'Post']);
     }
 
     /**
@@ -73,35 +74,68 @@ class Comments extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
-    function getId() {
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
         return $this->id;
     }
 
-    function getId_post() {
-        return $this->id_post;
-    }
-
-    function getId_user() {
-        return $this->id_user;
-    }
-
-    function getComment() {
-        return $this->comment;
-    }
-
-    function setId($id) {
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
-    function setId_post($id_post) {
+    /**
+     * @return int
+     */
+    public function getIdPost()
+    {
+        return $this->id_post;
+    }
+
+    /**
+     * @param int $id_post
+     */
+    public function setIdPost($id_post)
+    {
         $this->id_post = $id_post;
     }
 
-    function setId_user($id_user) {
+    /**
+     * @return int
+     */
+    public function getIdUser()
+    {
+        return $this->id_user;
+    }
+
+    /**
+     * @param int $id_user
+     */
+    public function setIdUser($id_user)
+    {
         $this->id_user = $id_user;
     }
 
-    function setComment($comment) {
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string $comment
+     */
+    public function setComment($comment)
+    {
         $this->comment = $comment;
     }
 

@@ -15,21 +15,21 @@ class Media extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(type="string", length=45, nullable=false)
+     * @Column(type="string", length=255, nullable=false)
      */
     public $title;
 
     /**
      *
      * @var string
-     * @Column(type="string", length=45, nullable=false)
+     * @Column(type="string", length=200, nullable=false)
      */
     public $description;
 
     /**
      *
      * @var string
-     * @Column(type="string", length=45, nullable=false)
+     * @Column(type="string", length=255, nullable=false)
      */
     public $fileURI;
 
@@ -73,37 +73,69 @@ class Media extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
-    function getId_med() {
+
+    /**
+     * @return int
+     */
+    public function getIdMed()
+    {
         return $this->id_med;
     }
 
-    function getTitle() {
-        return $this->title;
-    }
-
-    function getDescription() {
-        return $this->description;
-    }
-
-    function getFileURI() {
-        return $this->fileURI;
-    }
-
-    function setId_med($id_med) {
+    /**
+     * @param int $id_med
+     */
+    public function setIdMed($id_med)
+    {
         $this->id_med = $id_med;
     }
 
-    function setTitle($title) {
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
         $this->title = $title;
     }
 
-    function setDescription($description) {
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
         $this->description = $description;
     }
 
-    function setFileURI($fileURI) {
-        $this->fileURI = $fileURI;
+    /**
+     * @return string
+     */
+    public function getFileURI()
+    {
+        return $this->fileURI;
     }
 
+    /**
+     * @param string $fileURI
+     */
+    public function setFileURI($fileURI)
+    {
+        $this->fileURI = $fileURI;
+    }
 
 }

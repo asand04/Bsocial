@@ -11,7 +11,7 @@ class User extends \Phalcon\Mvc\Model
      * @var integer
      * @Primary
      * @Identity
-     * @Column(type="integer", length=11, nullable=false)
+     * @Column(type="integer", length=10, nullable=false)
      */
     public $id_user;
 
@@ -39,7 +39,7 @@ class User extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
-     * @Column(type="string", nullable=false)
+     * @Column(type="string", nullable=true)
      */
     public $birthdate;
 
@@ -52,22 +52,22 @@ class User extends \Phalcon\Mvc\Model
 
     /**
      *
-     * @var integer
-     * @Column(type="integer", length=11, nullable=false)
+     * @var string
+     * @Column(type="string", length=15, nullable=true)
      */
     public $telephone;
 
     /**
      *
      * @var string
-     * @Column(type="string", nullable=false)
+     * @Column(type="string", nullable=true)
      */
     public $joinDate;
 
     /**
      *
      * @var string
-     * @Column(type="string", nullable=false)
+     * @Column(type="string", nullable=true)
      */
     public $lastLogin;
 
@@ -134,77 +134,149 @@ class User extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
-    function getId_user() {
+
+    /**
+     * @return int
+     */
+    public function getIdUser()
+    {
         return $this->id_user;
     }
 
-    function getNom() {
-        return $this->nom;
-    }
-
-    function getPrenom() {
-        return $this->prenom;
-    }
-
-    function getPasswordHash() {
-        return $this->passwordHash;
-    }
-
-    function getBirthdate() {
-        return $this->birthdate;
-    }
-
-    function getEmail() {
-        return $this->email;
-    }
-
-    function getTelephone() {
-        return $this->telephone;
-    }
-
-    function getJoinDate() {
-        return $this->joinDate;
-    }
-
-    function getLastLogin() {
-        return $this->lastLogin;
-    }
-
-    function setId_user($id_user) {
+    /**
+     * @param int $id_user
+     */
+    public function setIdUser($id_user)
+    {
         $this->id_user = $id_user;
     }
 
-    function setNom($nom) {
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
         $this->nom = $nom;
     }
 
-    function setPrenom($prenom) {
+    /**
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param string $prenom
+     */
+    public function setPrenom($prenom)
+    {
         $this->prenom = $prenom;
     }
 
-    function setPasswordHash($passwordHash) {
+    /**
+     * @return string
+     */
+    public function getPasswordHash()
+    {
+        return $this->passwordHash;
+    }
+
+    /**
+     * @param string $passwordHash
+     */
+    public function setPasswordHash($passwordHash)
+    {
         $this->passwordHash = $passwordHash;
     }
 
-    function setBirthdate($birthdate) {
+    /**
+     * @return string
+     */
+    public function getBirthdate()
+    {
+        return $this->birthdate;
+    }
+
+    /**
+     * @param string $birthdate
+     */
+    public function setBirthdate($birthdate)
+    {
         $this->birthdate = $birthdate;
     }
 
-    function setEmail($email) {
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
         $this->email = $email;
     }
 
-    function setTelephone($telephone) {
+    /**
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * @param string $telephone
+     */
+    public function setTelephone($telephone)
+    {
         $this->telephone = $telephone;
     }
 
-    function setJoinDate($joinDate) {
+    /**
+     * @return string
+     */
+    public function getJoinDate()
+    {
+        return $this->joinDate;
+    }
+
+    /**
+     * @param string $joinDate
+     */
+    public function setJoinDate($joinDate)
+    {
         $this->joinDate = $joinDate;
     }
 
-    function setLastLogin($lastLogin) {
-        $this->lastLogin = $lastLogin;
+    /**
+     * @return string
+     */
+    public function getLastLogin()
+    {
+        return $this->lastLogin;
     }
 
+    /**
+     * @param string $lastLogin
+     */
+    public function setLastLogin($lastLogin)
+    {
+        $this->lastLogin = $lastLogin;
+    }
 
 }
