@@ -4,7 +4,7 @@ use Phalcon\Mvc\Controller;
 
 class landingController extends Controller
 {
-    
+
     public function indexAction()
     {
 
@@ -41,10 +41,14 @@ class landingController extends Controller
                     // die(var_dump($ets));
                     $var = $ets->save();
                     //  die(var_dump($var));
-                        $this->flashSession->success("Enregistrement effectue avec sucess");
-                        return $this->response->redirect($this->url->getBaseUri() . "landing/timeline", true);
-                    }
+                    $this->flashSession->success("Enregistrement effectue avec sucess");
+                    return $this->response->redirect($this->url->getBaseUri() . "landing/timeline", true);
                 }
             }
         }
+    }
+
+    public function timelineAction(){
+
+    }
 }
